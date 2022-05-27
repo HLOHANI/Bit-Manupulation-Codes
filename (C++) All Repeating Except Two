@@ -1,0 +1,46 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int n;
+    cin>>n;
+    int arr[n];
+    for(int i=0;i<n;i++)
+    {
+        cin>>arr[i];
+    }
+    
+    int xxor=0;
+    for(int value: arr)
+    {
+        xxor= xxor^value;
+    }
+    
+    int rsbm = xxor & -xxor;
+    
+    int x=0;
+    int y=0;
+    
+    for(int val: arr)
+    {
+        if((val & rsbm) == 0)
+        {
+            x = x^val;
+        }
+        else
+        {
+            y = y^val;
+        } 
+    }
+    if(x<y)
+    {
+        cout<<x<<endl;
+        cout<<y<<endl;
+    }
+    else
+    {
+        cout<<y<<endl;
+        cout<<x<<endl;
+    }
+    return 0;
+}
